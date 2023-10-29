@@ -8,13 +8,21 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.example.jetpackcomposeestudos.ui.theme.JetPackComposeEstudosTheme
 
 class MainActivity : ComponentActivity() {
@@ -85,28 +93,59 @@ fun BoxPreview() {
 
 
 @Preview(
+    showSystemUi = true,
     uiMode = UI_MODE_NIGHT_NO,
     showBackground = true,
-    backgroundColor = 0xffdcdcdc
 )
 @Composable
 fun CustomPreview() {
-    Column(Modifier.background(color = MaterialTheme.colorScheme.primary)) {
-        Text(text = "Primeiro Texto.")
-        Text(text = "Segundo Texto.")
-        Row(Modifier.background(color = MaterialTheme.colorScheme.inverseOnSurface)) {
+    Column(
+        Modifier //Modificador de layout
+            .padding(4.dp) //Define o padding do layout
+            .background(color = Color.Blue) //Define a cor de fundo do layout
+            .padding(8.dp) //Define o padding do layout interno
+            .fillMaxHeight() //Define a altura do layout como maxima
+            .fillMaxWidth() //Define a largura do layout como maxima
+    ) {
+        Text(text = "Primeiro Texto.", color = Color.White)
+        Text(
+            text = "Segundo Texto.", style = TextStyle(//Define o estilo do texto
+                fontWeight = FontWeight.Bold, // Define a espessura da fonte como negrito
+                fontSize = 16.sp, // Define o tamanho da fonte
+                color = Color.Black // Define a cor do texto
+            )
+        )
+        Row(
+            modifier = Modifier
+                .padding(horizontal = 16.dp, vertical = 16.dp)
+                .background(color = Color.Green)
+        ) {
             Text(text = "Terceiro Texto.")
             Text(text = "Quarto Texto.")
         }
-        Box(Modifier.background(color = MaterialTheme.colorScheme.secondary)) {
-            Column {
-                Row {
-                    Text(text = "Quinto Texto.")
-                    Text(text = "Sexto Texto.")
-                }
+        Box(
+            modifier = Modifier
+                .padding(16.dp)
+                .background(color = Color.Red)
+        ) {
+            Row(
+                Modifier
+                    .background(color = Color.Cyan)
+                    .fillMaxWidth()
+            ) {
+                Text(text = "Quinto Texto.")
+                Text(text = "Sexto Texto.")
+            }
+            Column(
+                modifier = Modifier
+                    .padding(8.dp)
+                    .background(color = Color.White)
+            ) {
+
                 Text(text = "Setimo Texto.")
                 Text(text = "Oitavo Texto.")
             }
+
         }
     }
 }
