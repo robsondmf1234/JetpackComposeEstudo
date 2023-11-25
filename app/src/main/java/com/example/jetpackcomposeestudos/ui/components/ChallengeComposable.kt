@@ -5,7 +5,6 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -22,24 +21,32 @@ import androidx.compose.ui.unit.dp
 fun ChallengeComposable() {
     Row(
         Modifier
-            .fillMaxWidth()
             .height(150.dp)
+            .fillMaxWidth()
     ) {
         Box(
             Modifier
-                .fillMaxHeight()
                 .width(100.dp)
+                .height(150.dp)
                 .background(Color.Blue)
         )
         Column {
             Text(
                 "Test 1",
                 Modifier
+                    .height(50.dp)
                     .fillMaxWidth()
                     .background(Color(0xFFededed))
                     .padding(16.dp)
             )
-            Text("Test 2", Modifier.padding(16.dp))
+            Text(
+                "Test 2",
+                Modifier
+                    .height(100.dp)
+                    .fillMaxWidth()
+                    .background(Color(0xFFededed))
+                    .padding(16.dp)
+            )
         }
     }
 }
