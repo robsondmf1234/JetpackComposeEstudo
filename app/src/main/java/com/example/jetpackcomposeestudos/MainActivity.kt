@@ -55,6 +55,7 @@ class MainActivity : ComponentActivity() {
 fun ProductItem() {
     Column(
         Modifier
+            .background(Color.White)
             .height(250.dp)
             .width(200.dp)
     ) {
