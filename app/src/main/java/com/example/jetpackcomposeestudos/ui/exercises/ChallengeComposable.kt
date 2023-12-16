@@ -1,4 +1,4 @@
-package com.example.jetpackcomposeestudos.ui.components
+package com.example.jetpackcomposeestudos.ui.exercises
 
 import android.content.res.Configuration
 import androidx.compose.foundation.background

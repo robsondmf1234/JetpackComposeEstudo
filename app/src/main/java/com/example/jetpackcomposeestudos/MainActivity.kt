@@ -17,7 +17,6 @@ import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Surface
@@ -53,54 +52,54 @@ class MainActivity : ComponentActivity() {
 @Composable
 @Preview(showBackground = true)
 fun ProductItem() {
-Surface(shape = RoundedCornerShape(15.dp), shadowElevation = 4.dp) {
-    Column(
-        Modifier
-            .heightIn(250.dp,300.dp)
-            .width(200.dp)
-    ) {
-        val imageSize = 100.dp
-        Box(
-            modifier = Modifier
-                .height(imageSize)
-                .background(
-                    brush = Brush.horizontalGradient(
-                        colors = listOf(
-                            Purple500, Teal200
+    Surface(shape = RoundedCornerShape(15.dp), shadowElevation = 4.dp) {
+        Column(
+            Modifier
+                .heightIn(250.dp, 300.dp)
+                .width(200.dp)
+        ) {
+            val imageSize = 100.dp
+            Box(
+                modifier = Modifier
+                    .height(imageSize)
+                    .background(
+                        brush = Brush.horizontalGradient(
+                            colors = listOf(
+                                Purple500, Teal200
+                            )
                         )
                     )
-                )
-                .fillMaxWidth()
+                    .fillMaxWidth()
 
-        ) {
-            Image(
-                painter = painterResource(id = R.drawable.ic_launcher_background),
-                contentDescription = null,
-                Modifier
-                    .size(imageSize)
-                    .offset(y = imageSize/2)
-                    .clip(shape = CircleShape)
-                    .align(BottomCenter)
-            )
-        }
-        Spacer(modifier = Modifier.height(imageSize/2))
-        Column(Modifier.padding(16.dp)) {
-            Text(
-                text = LoremIpsum(50).values.first(),
-                fontSize = 18.sp,
-                fontWeight = FontWeight(700),
-                maxLines = 2,
-                overflow = TextOverflow.Ellipsis
-            )
-            Text(
-                text = "R$ 14,99",
-                Modifier.padding(top = 8.dp),
-                fontSize = 14.sp,
-                fontWeight = FontWeight(400)
-            )
+            ) {
+                Image(
+                    painter = painterResource(id = R.drawable.ic_launcher_background),
+                    contentDescription = null,
+                    Modifier
+                        .size(imageSize)
+                        .offset(y = imageSize / 2)
+                        .clip(shape = CircleShape)
+                        .align(BottomCenter)
+                )
+            }
+            Spacer(modifier = Modifier.height(imageSize / 2))
+            Column(Modifier.padding(16.dp)) {
+                Text(
+                    text = LoremIpsum(50).values.first(),
+                    fontSize = 18.sp,
+                    fontWeight = FontWeight(700),
+                    maxLines = 2,
+                    overflow = TextOverflow.Ellipsis
+                )
+                Text(
+                    text = "R$ 14,99",
+                    Modifier.padding(top = 8.dp),
+                    fontSize = 14.sp,
+                    fontWeight = FontWeight(400)
+                )
+            }
         }
     }
-}
 }
 
 @Preview(showBackground = true, showSystemUi = true)
